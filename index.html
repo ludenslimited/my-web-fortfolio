@@ -239,12 +239,12 @@
   <!-- TEMTANG -->
   <section>
     <section class="container section-padding">
-      <h2>Jasa Aluminium dan Interior di Banjarbaru kalimantan Selatan</h2>
+      <h2>Jasa Aluminium dan Interior di Palangkaraya Kalimantan Tengah</h2>
 
       <p>
         Ludens Limited melayani jasa aluminium, pemasangan pintu dan jendela
         aluminium, pagar besi, kaca hias, kitchen set, dan interior rumah di
-        wilayah kalimantan Selatan dan sekitarnya. Kami mengutamakan hasil rapi,
+        wilayah kalimantan tengah dan sekitarnya. Kami mengutamakan hasil rapi,
         cepat dan harga menyesuaikan kebutuhan pelanggan.
       </p>
 
@@ -256,7 +256,7 @@
       <p>
         Ludens Limited melayani jasa aluminium, kaca, pagar besi dan interior
         rumah dengan hasil rapi dan harga menyesuaikan kebutuhan anda. Kami
-        berlokasi di Banjarbaru dan melayani wilayah sekitarnya.
+        berlokasi di Palangkaraya dan melayani wilayah sekitarnya.
       </p>
     </section>
   </section>
@@ -326,6 +326,49 @@
   <footer class="bg-primary text-black text-center p-3">
     <p>© 2026 Ludens Limited</p>
   </footer>
+  <!-- Floating WhatsApp Button -->
+  <a href="#" id="floatingWA" class="floating-wa" title="Chat WhatsApp - Data form update otomatis">
+    💬
+  </a>
+
+  <script>
+    (function () {
+      'use strict';
+      const waBtn = document.getElementById('floatingWA');
+      if (!waBtn) return;
+
+      const fields = {
+        nama: document.getElementById('nama'),
+        layanan: document.getElementById('layanan'),
+        pesan: document.getElementById('pesan')
+      };
+
+      function buildMessage() {
+        const nama = (fields.nama?.value || '').trim() || 'Pelanggan';
+        const layanan = fields.layanan?.value || 'Layanan umum';
+        const pesan = (fields.pesan?.value || '').trim() || 'Konsultasi';
+        return `Halo, saya ${nama}%0ASaya ingin pesan layanan: ${layanan}%0APesan: ${pesan}`;
+      }
+
+      // Surprise me: Super-smooth real-time updates using requestAnimationFrame (~60fps)
+      let rafId;
+      function updateMsg() {
+        waBtn.dataset.text = buildMessage();
+        rafId = requestAnimationFrame(updateMsg);
+      }
+      updateMsg(); // Start loop
+
+      waBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const text = waBtn.dataset.text || 'Halo! Minat jasa aluminium, kaca, pagar & interior rumah di Palangkaraya.';
+        const nomorWA = '6283107700746';
+        window.open(`https://wa.me/${nomorWA}?text=${text}`, '_blank');
+      });
+
+      // Cleanup on unload
+      window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId));
+    })();
+  </script>
   <script src="javascript"></script>
 </body>
 
